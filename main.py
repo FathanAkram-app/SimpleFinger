@@ -12,13 +12,8 @@ window = sg.Window(
     [sg.Image(filename='', key='image')], 
     [
       sg.Button(
-      button_text="Face Tracker",),
-      sg.Button(
-      button_text="Hand Tracker"
-      ),
-      sg.Button(
-      button_text="Pose Tracker"
-      )
+      button_text="Turn On Peace to capture",)
+      
     ]
   ], 
   location=(0, 0), 

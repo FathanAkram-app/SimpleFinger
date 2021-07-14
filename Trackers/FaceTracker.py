@@ -18,7 +18,6 @@ def face_tracker(cap):
         if results.multi_face_landmarks:
 
             for face_landmarks in results.multi_face_landmarks:
-                print('face_landmarks:', face_landmarks)
                 mp_drawing.draw_landmarks(
                     image=annotated_image,
                     landmark_list=face_landmarks,
