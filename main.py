@@ -1,9 +1,8 @@
 
 import cv2
 import mediapipe as mp
-import pyautogui
 import PySimpleGUI as sg
-import Trackers.FaceTracker as FaceTracker
+import Trackers.HandTracker as HandTracker
 
 USE_CAMERA = 0      # change to 1 for front facing camera
 window = sg.Window(
@@ -20,5 +19,7 @@ window = sg.Window(
   grab_anywhere=True)
 
 cap = cv2.VideoCapture(USE_CAMERA)
+
 while window(timeout=20)[0] != sg.WIN_CLOSED:
-    window['image'](data=cv2.imencode('.png', FaceTracker.face_tracker(cap))[1].tobytes())
+    isPeace, processedImage = HandTracker.hand_tracker(cap)
+    window['image'](data=cv2.imencode('.png', processedImage)[1].tobytes())
