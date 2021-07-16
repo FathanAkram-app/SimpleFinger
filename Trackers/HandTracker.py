@@ -21,21 +21,19 @@ class handDetector():
         self.mpDraw = mp.solutions.drawing_utils
 
     def find_hands(self,image):
-
-            
             results = self.hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
             
-            hand_landmarks_result = []
+            positions = []
             annotated_image = image.copy()
             if results.multi_hand_landmarks:
                 for hand_landmarks in results.multi_hand_landmarks:
                     
-                    hand_landmarks_result.append(hand_landmarks_result)
+                    positions.append(hand_landmarks)
 
                     self.mpDraw.draw_landmarks(
                         annotated_image, 
                         hand_landmarks, 
                         self.mpHands.HAND_CONNECTIONS)
 
-            return annotated_image, hand_landmarks_result
+            return annotated_image, positions
 
